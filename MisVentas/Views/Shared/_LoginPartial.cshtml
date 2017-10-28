@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @*@Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Home", "Pages", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        @*<li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        @*<li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Iniciar sesión2", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
+            @*<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+
+           @if (Session["Username"] != null)
+
+                   {
+                      string u = System.Web.HttpContext.Current.Session["Username"] as String;
+                     <li><a> Bienvenido : @u </a></li>
+                     <li><a href="@Url.Action("Login", "Account")"> <span class="glyphicon glyphicon-user"></span> LogOut</a></li>
+           }
+           else
+           {
+               <li><a href="@Url.Action("Login", "Account")"> <span class="glyphicon glyphicon-user"></span> Registro</a></li>
+               <li><a href="@Url.Action("Login", "Account")"> <span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+           }
+           
+
+
+
+
+            @*<li>@Html.ActionLink("", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }, new {@class = "glyphicon glyphicon-log-in" })</li>
+
+
+                @Html.ActionLink(" ", "EditResources", "NicheSites", new { ViewBag.dbc, item.locale, ViewBag.domainId, domainName = ViewBag.domaiName }, new {@class= "glyphicon glyphicon-edit" })*@
+     </ul>
+}
+
