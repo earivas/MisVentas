@@ -8,11 +8,11 @@ namespace MisVentas.Models
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage ="  El Usuario es obligatorio")]
         [Display(Name = "User name")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "  La Contraseña es obligatoria")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

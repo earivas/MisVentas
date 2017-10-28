@@ -8,8 +8,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                @*@Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
-                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Home", "Pages", routeValues: null, htmlAttributes: new { title = "Manage" })
+             @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Home", "Pages", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
         </ul>
@@ -29,22 +28,14 @@ else
                    {
                       string u = System.Web.HttpContext.Current.Session["Username"] as String;
                      <li><a> Bienvenido : @u </a></li>
-                     <li><a href="@Url.Action("Login", "Account")"> <span class="glyphicon glyphicon-user"></span> LogOut</a></li>
+                     <li><a href="@Url.Action("Login", "Account")"> <span class="glyphicon glyphicon-user"></span> Salir </a></li>
            }
            else
            {
                <li><a href="@Url.Action("Login", "Account")"> <span class="glyphicon glyphicon-user"></span> Registro</a></li>
                <li><a href="@Url.Action("Login", "Account")"> <span class="glyphicon glyphicon-log-in"></span> Login</a></li>
            }
-           
-
-
-
-
-            @*<li>@Html.ActionLink("", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }, new {@class = "glyphicon glyphicon-log-in" })</li>
-
-
-                @Html.ActionLink(" ", "EditResources", "NicheSites", new { ViewBag.dbc, item.locale, ViewBag.domainId, domainName = ViewBag.domaiName }, new {@class= "glyphicon glyphicon-edit" })*@
+               
      </ul>
 }
 

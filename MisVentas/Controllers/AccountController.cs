@@ -46,10 +46,10 @@ namespace MisVentas.Controllers
                 }
                 return this.RedirectToAction("Home", "Pages");
             }
-            this.ModelState.AddModelError(string.Empty, "The Username or Password is incorrect.");
+            this.ModelState.AddModelError(string.Empty, "Usuario o password incorrecto.");
             return this.View(model);
         }
-
+        
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
