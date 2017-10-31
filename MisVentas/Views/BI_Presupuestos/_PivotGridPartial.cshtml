@@ -14,7 +14,7 @@
     settings.Styles.DataAreaStyle.Font.Size = 8;
     settings.Styles.FieldValueGrandTotalStyle.Font.Size = 8;
     settings.Styles.FieldValueStyle.Font.Size = 8;
-
+   settings.OptionsData.DataFieldUnboundExpressionMode = DataFieldUnboundExpressionMode.UseSummaryValues;
 
     settings.Fields.Add(field =>
     {
@@ -89,7 +89,7 @@
     settings.Fields.Add(f =>
     {
         f.Caption = "Cump. Ppto $";
-        f.UnboundExpression = "[VentaMLActual]-[PptoMlocal]";
+        f.UnboundExpression = "[fieldVentaMLActual]-[fieldPptoMlocal]";
         f.UnboundType = DevExpress.Data.UnboundColumnType.Object;
         f.DisplayFolder = "Cumpl";
         f.CellFormat.FormatType = FormatType.Numeric;
@@ -102,7 +102,7 @@
 
         f.Caption = "%Cump Ppto";
         f.FieldName = "CumpPptoPorc";
-        f.UnboundExpression = "Iif( [PptoMlocal] = 0, 0, [VentaMLActual]/[PptoMlocal])";
+        f.UnboundExpression = "Iif( [fieldPptoMlocal] = 0, 0, ([fieldVentaMLActual]/[fieldPptoMlocal])*100)";
         //  f.UnboundExpression = "Iif([PptoMlocal]=0,0, Iff([VentaMLActual]=0,0,[VentaMLActual]/[PptoMlocal]))";
         f.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
         f.DisplayFolder = "%Cumpl";
