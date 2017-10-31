@@ -1,0 +1,124 @@
+@Html.DevExpress().PivotGrid(settings =>
+{
+    settings.Name = "PivotGrid";
+    settings.CallbackRouteValues = new { Controller = "BI_Presupuestos", Action = "PivotGridPartial" };
+    settings.Styles.AreaStyle.Font.Size = 8;
+    settings.Styles.CellStyle.Font.Size = 8;
+    settings.Styles.ColumnAreaStyle.Font.Size = 8;
+    settings.Styles.CustomTotalCellStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsCloseButtonStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsContentStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsHeaderStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsStyle.Font.Size = 8;
+    settings.Styles.CustomTotalCellStyle.Font.Size = 8;
+    settings.Styles.DataAreaStyle.Font.Size = 8;
+    settings.Styles.FieldValueGrandTotalStyle.Font.Size = 8;
+    settings.Styles.FieldValueStyle.Font.Size = 8;
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "Vendedor";
+        field.Caption = "Vendedor";
+        field.AreaIndex = 0;
+    });
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "OrgVentas";
+        field.Caption = "Empresa";
+        field.AreaIndex = 0;
+    });
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.FilterArea;
+        field.AreaIndex = 0;
+        field.FieldName = "Fecha";
+        field.Caption = "Mes";
+        field.GroupInterval = PivotGroupInterval.DateMonth;
+    });
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.RowArea;
+        field.FieldName = "Linea";
+        field.Caption = "Linea";
+        field.AreaIndex = 0;
+    });
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.RowArea;
+        field.FieldName = "Producto";
+        field.Caption = "Producto";
+        field.AreaIndex = 0;
+    });
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.DataArea;
+        field.FieldName = "VentaMLAnterior";
+        field.Caption = "Año Anterior";
+        field.AreaIndex = 0;
+    });
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.DataArea;
+        field.FieldName = "VentaMLActual";
+        field.Caption = "Año Actual";
+        field.AreaIndex = 1;
+        field.SortOrder = PivotSortOrder.Descending;
+    });
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.DataArea;
+        field.FieldName = "PptoMlocal";
+        field.Caption = "Presupuesto";
+        field.AreaIndex = 3;
+    });
+
+
+    settings.Fields.Add(f =>
+    {
+        f.Caption = "Cump. Ppto $";
+        f.UnboundExpression = "[VentaMLActual]-[PptoMlocal]";
+        f.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+        f.DisplayFolder = "Cumpl";
+        f.CellFormat.FormatType = FormatType.Numeric;
+        f.CellFormat.FormatString = "c";
+        f.Area = PivotArea.DataArea;
+    });
+
+    settings.Fields.Add(f =>
+    {
+
+        f.Caption = "%Cump Ppto";
+        f.FieldName = "CumpPptoPorc";
+        f.UnboundExpression = "Iif( [PptoMlocal] = 0, 0, [VentaMLActual]/[PptoMlocal])";
+        //  f.UnboundExpression = "Iif([PptoMlocal]=0,0, Iff([VentaMLActual]=0,0,[VentaMLActual]/[PptoMlocal]))";
+        f.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+        f.DisplayFolder = "%Cumpl";
+        f.CellFormat.FormatType = FormatType.Numeric;
+        f.CellFormat.FormatString = "{0:f2} %";
+        f.Area = PivotArea.DataArea;
+
+        //f.UnboundExpressionMode = "UsesSummaryValues";
+
+
+    });
+
+
+    settings.OptionsView.HorizontalScrollBarMode = ScrollBarMode.Auto;
+    settings.OptionsCustomization.CustomizationFormStyle = DevExpress.XtraPivotGrid.Customization.CustomizationFormStyle.Excel2007;
+    settings.OptionsPager.RowsPerPage = 10;
+    settings.OptionsPager.ColumnsPerPage = 10;
+
+}).Bind(Model).GetHtml()

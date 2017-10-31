@@ -168,6 +168,7 @@
   <ItemGroup>
     <Content Include="App_Data\BlogPosts.xml" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Blog\blank.png" />
     <Content Include="Content\Images\Blog\image0.png" />
     <Content Include="Content\Images\Blog\image1.png" />
     <Content Include="Content\Images\Blog\image2.png" />
@@ -181,6 +182,18 @@
     <Content Include="Content\Images\Customers\HeidiLopez.jpg" />
     <Content Include="Content\Images\Customers\NathanBryant.jpg" />
     <Content Include="Content\Images\Customers\RafaelRaje.jpg" />
+    <Content Include="Content\Images\LogOut.png" />
+    <Content Include="Content\Images\Menu\budget-icon-7_large.png" />
+    <Content Include="Content\Images\Menu\Engranage.png" />
+    <Content Include="Content\Images\Menu\images.png" />
+    <Content Include="Content\Images\Menu\img-budget-icon.png" />
+    <Content Include="Content\Images\Menu\Inventory.png" />
+    <Content Include="Content\Images\Menu\LogOut.png" />
+    <Content Include="Content\Images\Menu\Ppto.png" />
+    <Content Include="Content\Images\Menu\Presupuesto.png" />
+    <Content Include="Content\Images\Menu\Reports.png" />
+    <Content Include="Content\Images\Menu\VB-icon-cartMoney01.png" />
+    <Content Include="Content\Images\Menu\Ventas.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\login.css" />
@@ -245,7 +258,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Pages\AddCommentFormPartial.cshtml" />
     <Content Include="Views\Shared\HeaderPanelContentPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout0.cshtml" />
     <Content Include="Views\Pages\BlogPost.cshtml" />
     <Content Include="Views\Pages\Home.cshtml" />
     <Content Include="Views\Pages\Contacts.cshtml" />
@@ -255,6 +267,10 @@
     <Content Include="Views\Pages\BlogCategoriesNavBarPartial.cshtml" />
     <Content Include="Views\Pages\Search.cshtml" />
     <Content Include="Views\Pages\SearchGridViewPartial.cshtml" />
+    <Content Include="Views\BI_Presupuestos\Index.cshtml" />
+    <Content Include="Views\BI_Presupuestos\_PivotGridPartial.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -267,6 +283,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BI_PresupuestosController.cs" />
     <Compile Include="Controllers\PagesController.BlogPosts.cs" />
     <Compile Include="Controllers\PagesController.Contacts.cs" />
     <Compile Include="Controllers\PagesController.Home.cs" />
@@ -274,9 +291,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ActionAuthorizeAttribute.cs" />
+    <Compile Include="Models\BI_PoolVendedores.cs" />
+    <Compile Include="Models\BI_Presupuestos.cs" />
     <Compile Include="Models\BlogPosts.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MisVentasContext.cs" />
+    <Compile Include="Models\MisVentasException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

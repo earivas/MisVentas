@@ -1,0 +1,40 @@
+﻿@using MisVentas.Models
+<!DOCTYPE html>
+<h2>Error</h2>
+<html lang="en">
+<head>
+    @model HandleErrorInfo
+
+    @{
+        ViewBag.Title = "MisVentas : Error";
+    }
+
+    @{
+        Layout = null;
+    }
+
+    <title>"MisVentas : Error"</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    @*<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/site.css")" rel="stylesheet">*@
+</head>
+<body>
+    <div class=" alert alert-warning">
+        @if (Model.Exception is MisVentasException)
+        {
+
+            <strong>@Model.Exception.Message</strong>
+        }
+        else
+        {
+            <strong>Error no especificado ... comuniquese con el administrador del sistema</strong>
+        }
+    </div>
+</body>
+
+</html>

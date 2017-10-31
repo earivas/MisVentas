@@ -10,6 +10,7 @@ using System.Web.Security;
 
 namespace MisVentas.Controllers
 {
+    [HandleError(View ="Error")]
     public class AccountController : Controller
     {
         // GET: Account
@@ -100,11 +101,26 @@ namespace MisVentas.Controllers
 
         public bool AuthenticateAD(string username, string password)
         {
-            using (var context = new PrincipalContext(ContextType.Domain,
-            ConfigurationManager.AppSettings["DomainName"]))
+
+
+            try
             {
-                return context.ValidateCredentials(username, password);
+                var Val = new PrincipalContext(ContextType.Domain, ConfigurationManager.AppSettings["DomainName"]);
             }
+
+            catch
+
+            {
+                throw new MisVentasException("No se pudo conectar con el servidor");
+            }
+
+         
+           using ( var context = new PrincipalContext(ContextType.Domain, ConfigurationManager.AppSettings["DomainName"]))
+                {
+                 return context.ValidateCredentials(username, password);
+                }
+          
+          
         }
     }
 }
