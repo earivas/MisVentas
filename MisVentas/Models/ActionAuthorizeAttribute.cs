@@ -22,7 +22,7 @@ namespace MisVentas.Models
                 try
                 {
                     if (string.IsNullOrEmpty(HttpContext.Current.Session["Username"].ToString())
-|| string.IsNullOrEmpty(HttpContext.Current.Session["Password"].ToString()))
+                        || string.IsNullOrEmpty(HttpContext.Current.Session["Password"].ToString()))
                     {
                         //send them off to the login page
                         var url = new UrlHelper(filterContext.RequestContext);

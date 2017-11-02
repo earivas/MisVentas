@@ -5,14 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MisVentas.Models;
+using MisVentas.Models.Code;
 
 namespace MisVentas.Controllers
 {
+
     [HandleError(View = "Error")]
     public class BI_PresupuestosController : Controller
     {
 
         // GET: BI_PRESUPUESTOS
+        [SessionExpire]
         public ActionResult Index()
         {
             ViewBag.UserName = HttpContext.User.Identity.Name;
@@ -24,6 +27,7 @@ namespace MisVentas.Controllers
         //  [Authorize]
         [ValidateInput(false)]
         //   [HttpPost, Authorize, ValidateAntiForgeryToken] // nuevo
+        [SessionExpire]
         public ActionResult PivotGridPartial()
         {
 
@@ -36,7 +40,15 @@ namespace MisVentas.Controllers
             }
             catch (Exception)
             {
-                throw new  MisVentasException("No se pudo establecer conexión a la base de datos");
+                if (userName == null)
+                {
+                    throw new MisVentasException("la session a expirado");
+                }
+               
+                else
+                 {
+                    throw new MisVentasException("No se pudo establecer conexión a la base de datos");
+                }
             }
 
             // Obtengo el Codigo de vendedor de la tabla BI_PoolVendedores

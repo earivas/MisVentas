@@ -1,4 +1,5 @@
 ﻿using MisVentas.Models;
+using MisVentas.Models.Code;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,7 +15,9 @@ namespace MisVentas.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-
+        
+        
+      
         public ActionResult Login()
         {
             return View();

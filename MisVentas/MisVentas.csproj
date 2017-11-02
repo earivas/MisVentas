@@ -271,6 +271,8 @@
     <Content Include="Views\BI_Presupuestos\_PivotGridPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\DataOutput\Export.cshtml" />
+    <Content Include="Views\DataOutput\ExportPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -284,6 +286,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BI_PresupuestosController.cs" />
+    <Compile Include="Controllers\DataOutputController.cs" />
+    <Compile Include="Controllers\DataOutput\DataOutputController.Export.cs" />
+    <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="Controllers\PagesController.BlogPosts.cs" />
     <Compile Include="Controllers\PagesController.Contacts.cs" />
     <Compile Include="Controllers\PagesController.Home.cs" />
@@ -294,13 +300,32 @@
     <Compile Include="Models\BI_PoolVendedores.cs" />
     <Compile Include="Models\BI_Presupuestos.cs" />
     <Compile Include="Models\BlogPosts.cs" />
+    <Compile Include="Models\Code\CodeFormatter.cs" />
+    <Compile Include="Models\Code\ExternalModel.cs" />
+    <Compile Include="Models\Code\Helper\PivotGridDataOutputHelper.cs" />
+    <Compile Include="Models\Code\IntroPageModel.cs" />
+    <Compile Include="Models\Code\OverviewPageModel.cs" />
+    <Compile Include="Models\Code\SessionExpireAttribute.cs" />
+    <Compile Include="Models\Code\SiteGroupModel.cs" />
+    <Compile Include="Models\Code\SiteModel.cs" />
+    <Compile Include="Models\Code\SiteModelBase.cs" />
+    <Compile Include="Models\Code\SitesModel.cs" />
+    <Compile Include="Models\Code\ThemeGroupModel.cs" />
+    <Compile Include="Models\Code\ThemeModel.cs" />
+    <Compile Include="Models\Code\ThemeModelBase.cs" />
+    <Compile Include="Models\Code\ThemesModel.cs" />
+    <Compile Include="Models\Code\Utils.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MisVentasContext.cs" />
     <Compile Include="Models\MisVentasException.cs" />
+    <Compile Include="Models\Code\PivotGridExportOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Default\" />
+    <Folder Include="Views\Export\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
