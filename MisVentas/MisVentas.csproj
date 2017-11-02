@@ -273,6 +273,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\DataOutput\Export.cshtml" />
     <Content Include="Views\DataOutput\ExportPartial.cshtml" />
+    <Content Include="Views\BI_Ventas_Historicas\Index.cshtml" />
+    <Content Include="Views\BI_Ventas_Historicas\_PivotGridPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -286,6 +288,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BI_PresupuestosController.cs" />
+    <Compile Include="Controllers\BI_Ventas_HistoricasController.cs" />
     <Compile Include="Controllers\DataOutputController.cs" />
     <Compile Include="Controllers\DataOutput\DataOutputController.Export.cs" />
     <Compile Include="Controllers\DemoController.cs" />
@@ -299,6 +302,7 @@
     <Compile Include="Models\ActionAuthorizeAttribute.cs" />
     <Compile Include="Models\BI_PoolVendedores.cs" />
     <Compile Include="Models\BI_Presupuestos.cs" />
+    <Compile Include="Models\BI_Ventas_Historicas.cs" />
     <Compile Include="Models\BlogPosts.cs" />
     <Compile Include="Models\Code\CodeFormatter.cs" />
     <Compile Include="Models\Code\ExternalModel.cs" />

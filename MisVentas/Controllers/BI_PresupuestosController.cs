@@ -42,7 +42,7 @@ namespace MisVentas.Controllers
             {
                 if (userName == null)
                 {
-                    throw new MisVentasException("la session a expirado");
+                    throw new MisVentasException("");
                 }
                
                 else
@@ -52,11 +52,6 @@ namespace MisVentas.Controllers
             }
 
             // Obtengo el Codigo de vendedor de la tabla BI_PoolVendedores
-              //if (db.BI_PoolVendedores.Where(vd => vd.UserDomain == userName).Select(vd => vd.VendFilter).Count() == 0)
-                //{
-
-                //}
-
                  var  vendedorID = db.BI_PoolVendedores.Where(vd => vd.UserDomain == userName).Select(vd => vd.VendFilter).First();
                  var ppto = db.BI_Presupuestos.Where(bi => bi.VendFilter == vendedorID.ToString()).ToList();
                  return PartialView("_PivotGridPartial", ppto.ToList());
