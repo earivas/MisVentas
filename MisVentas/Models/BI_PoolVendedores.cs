@@ -16,5 +16,6 @@ namespace MisVentas.Models
         public string Email { get; set; }
         public string IdVendedor { get; set; }
         public string VendFilter { get; set; }
+        public string IdOrgVentas { get; set; }
     }
 }

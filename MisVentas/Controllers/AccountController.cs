@@ -48,7 +48,9 @@ namespace MisVentas.Controllers
                 {
                     return this.Redirect(returnUrl);
                 }
-                return this.RedirectToAction("Home", "Pages");
+                //return this.RedirectToAction("Home", "Pages");
+                //return this.RedirectToAction("Index", "Principal");
+                return this.RedirectToAction("Inicio", "Inicio");
             }
             this.ModelState.AddModelError(string.Empty, "Usuario o password incorrecto.");
             return this.View(model);

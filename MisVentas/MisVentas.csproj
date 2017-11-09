@@ -167,7 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\BlogPosts.xml" />
+    <Content Include="App_Data\DashboardMisventas.xml" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Contenedor.css" />
     <Content Include="Content\Images\Blog\blank.png" />
     <Content Include="Content\Images\Blog\image0.png" />
     <Content Include="Content\Images\Blog\image1.png" />
@@ -275,6 +277,11 @@
     <Content Include="Views\DataOutput\ExportPartial.cshtml" />
     <Content Include="Views\BI_Ventas_Historicas\Index.cshtml" />
     <Content Include="Views\BI_Ventas_Historicas\_PivotGridPartial.cshtml" />
+    <Content Include="Views\Pages\_DashboardViewerPartial.cshtml" />
+    <Content Include="Views\Inicio\_PivotGridPartial.cshtml" />
+    <Content Include="Views\Inicio\Inicio.cshtml" />
+    <Content Include="Views\BI_Inventarios\Index.cshtml" />
+    <Content Include="Views\BI_Inventarios\_PivotGridPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -283,6 +290,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\DashboardConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -293,13 +301,22 @@
     <Compile Include="Controllers\DataOutput\DataOutputController.Export.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\ExportController.cs" />
+    <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\PagesController.BlogPosts.cs" />
     <Compile Include="Controllers\PagesController.Contacts.cs" />
     <Compile Include="Controllers\PagesController.Home.cs" />
+    <Compile Include="Dashboard\DashboardVentas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dashboard\DashboardVentas.Designer.cs">
+      <DependentUpon>DashboardVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ActionAuthorizeAttribute.cs" />
+    <Compile Include="Controllers\BI_InventariosController.cs" />
+    <Compile Include="Models\BI_Inventarios.cs" />
     <Compile Include="Models\BI_PoolVendedores.cs" />
     <Compile Include="Models\BI_Presupuestos.cs" />
     <Compile Include="Models\BI_Ventas_Historicas.cs" />
@@ -329,6 +346,12 @@
   <ItemGroup>
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Export\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dashboard\DashboardVentas.resx">
+      <DependentUpon>DashboardVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

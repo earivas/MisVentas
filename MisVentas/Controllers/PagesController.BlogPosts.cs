@@ -1,3 +1,4 @@
+using DevExpress.Web.Mvc;
 using System.Web.Mvc;
 using MisVentas.Models;
 
@@ -32,5 +33,7 @@ namespace MisVentas.Controllers
             ViewBag.Query = query;
             return PartialView(BlogPostsProvider.GetBlogPosts());
         }
+
+    
     }
 }

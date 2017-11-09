@@ -1,0 +1,10 @@
+@model DevExpress.DashboardWeb.Mvc.DashboardSourceModel
+@Html.DevExpress().DashboardViewer(settings => {
+    settings.Name = "DashboardViewer";
+    settings.CallbackRouteValues = new { Controller = "Pages", Action = "DashboardViewerPartial" };
+    settings.ExportRouteValues = new { Controller = "Pages", Action = "DashboardViewerPartialExport" };
+    //settings.FullscreenMode = true;
+ //   settings.Height = Unit.Percentage(97);
+    settings.Width = Unit.Percentage(100);
+
+}).BindToSource(Model).GetHtml()

@@ -50,11 +50,8 @@ namespace MisVentas.Models
                 catch (Exception e)
                 {
 
-
                 }
-
-
-
+                
             }
             base.OnActionExecuting(filterContext);
         }

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-ES" DesignerAutomaticUpdates="false">
+  <Title Visible="false" Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Presupuestos</Name>
+      <Connection Name="172.25.0.103\dev2014_INReportes_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="172.25.0.103\dev2014" />
+          <Parameter Name="database" Value="INReportes" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="BI_PRESUPUESTOS">
+        <Parameter Name="VendID" Type="System.String">001</Parameter>
+        <Tables>
+          <Table Name="BI_PRESUPUESTOS" Meta="60|10|210|609" />
+        </Tables>
+        <Columns>
+          <Column Table="BI_PRESUPUESTOS" Name="VentaMLActual" />
+          <Column Table="BI_PRESUPUESTOS" Name="PptoMlocal" />
+          <Column Table="BI_PRESUPUESTOS" Name="VentaMLAnterior" />
+          <Column Table="BI_PRESUPUESTOS" Name="Vendedor" />
+          <Column Table="BI_PRESUPUESTOS" Name="Linea" />
+          <Column Table="BI_PRESUPUESTOS" Name="UndNegocio" />
+          <Column Table="BI_PRESUPUESTOS" Name="Fecha" />
+          <Column Table="BI_PRESUPUESTOS" Name="VendFilter" />
+          <Column Table="BI_PRESUPUESTOS" Name="Producto" />
+        </Columns>
+        <Filter>[BI_PRESUPUESTOS.VendFilter] = ?VendID</Filter>
+        <GroupFilter></GroupFilter>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Presupuestos">
+          <View Name="BI_PRESUPUESTOS">
+            <Field Name="VentaMLActual" Type="Decimal" />
+            <Field Name="PptoMlocal" Type="Decimal" />
+            <Field Name="VentaMLAnterior" Type="Decimal" />
+            <Field Name="Vendedor" Type="String" />
+            <Field Name="Linea" Type="String" />
+            <Field Name="UndNegocio" Type="String" />
+            <Field Name="Fecha" Type="DateTime" />
+            <Field Name="VendFilter" Type="String" />
+            <Field Name="Producto" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+      <CalculatedFields>
+        <CalculatedField Name="%CrecML" Expression="Sum([VentaMLActual] - [VentaMLAnterior]) / Sum([VentaMLAnterior])" DataType="Auto" DataMember="BI_PRESUPUESTOS" />
+        <CalculatedField Name="%CumpML" Expression="Iif(Sum([PptoMlocal]) = 0, 0, Sum([VentaMLActual]) / Sum([PptoMlocal]))" DataType="Auto" DataMember="BI_PRESUPUESTOS" />
+      </CalculatedFields>
+    </SqlDataSource>
+    <SqlDataSource ComponentName="dashboardSqlDataSource2">
+      <Name>Ventas</Name>
+      <Connection Name="172.25.0.103\Dev2014_INReportes_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="172.25.0.103\Dev2014" />
+          <Parameter Name="database" Value="INReportes" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="BI_VENTAS_HISTORICAS">
+        <Tables>
+          <Table Name="BI_VENTAS_HISTORICAS" Meta="30|30|125|685" />
+        </Tables>
+        <Columns>
+          <AllColumns Table="BI_VENTAS_HISTORICAS" />
+        </Columns>
+        <Filter>[BI_VENTAS_HISTORICAS.VendFilter] = '022' And [BI_VENTAS_HISTORICAS.Anyo] = 2017</Filter>
+        <GroupFilter></GroupFilter>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Ventas">
+          <View Name="BI_VENTAS_HISTORICAS">
+            <Field Name="ID" Type="Decimal" />
+            <Field Name="Anyo" Type="Int32" />
+            <Field Name="Trimestre" Type="String" />
+            <Field Name="Mes" Type="String" />
+            <Field Name="MesNombre" Type="String" />
+            <Field Name="UndNegocio" Type="String" />
+            <Field Name="Linea" Type="String" />
+            <Field Name="IdOrgVentas" Type="String" />
+            <Field Name="OrgVentas" Type="String" />
+            <Field Name="IdVendedor" Type="String" />
+            <Field Name="IdCliente" Type="String" />
+            <Field Name="NombreComercial" Type="String" />
+            <Field Name="IdCeBe" Type="String" />
+            <Field Name="UndNegocioProducto" Type="String" />
+            <Field Name="NombreG1" Type="String" />
+            <Field Name="NombreG2" Type="String" />
+            <Field Name="NombreG3" Type="String" />
+            <Field Name="Producto" Type="String" />
+            <Field Name="idmaterial" Type="String" />
+            <Field Name="Intercompany" Type="Int32" />
+            <Field Name="CantidadTotal" Type="Decimal" />
+            <Field Name="CantidadBonificada" Type="Decimal" />
+            <Field Name="CantidadMuestra" Type="Decimal" />
+            <Field Name="CantidadFacturada" Type="Decimal" />
+            <Field Name="VentaML" Type="Decimal" />
+            <Field Name="CostoML" Type="Decimal" />
+            <Field Name="CostoBonificadoML" Type="Decimal" />
+            <Field Name="VentaMF" Type="Decimal" />
+            <Field Name="CostoMF" Type="Decimal" />
+            <Field Name="VentaMG" Type="Decimal" />
+            <Field Name="CostoMG" Type="Decimal" />
+            <Field Name="VendFilter" Type="String" />
+            <Field Name="Fecha" Type="DateTime" />
+            <Field Name="Vendedor" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+  </DataSources>
+  <Parameters>
+    <Parameter Name="VendID" Value="" />
+  </Parameters>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem1" Name="Cumplimiento Presupuesto" DataSource="dashboardSqlDataSource1" DataMember="BI_PRESUPUESTOS">
+      <DataItems>
+        <Measure DataMember="VentaMLAnterior" Name="Año Anterior" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="VentaMLActual" Name="Año Actual" DefaultId="DataItem1">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="PptoMlocal" Name="Ppto" DefaultId="DataItem2">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="Fecha" DateTimeGroupInterval="Month" DefaultId="DataItem3" />
+        <Measure DataMember="%CumpML" DefaultId="DataItem5">
+          <NumericFormat FormatType="Percent" IncludeGroupSeparator="true" />
+        </Measure>
+      </DataItems>
+      <FormatRules>
+        <PivotItemFormatRule Name="FormatRule 1" DataItem="DataItem5">
+          <FormatConditionValue Condition="Greater">
+            <IconSettings IconType="IndicatorCircledGreenCheck" />
+            <Value1 Type="System.Decimal" Value="1" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+        <PivotItemFormatRule Name="FormatRule 2" DataItem="DataItem5" DataItemApplyTo="DataItem5">
+          <FormatConditionValue Condition="Between">
+            <IconSettings IconType="IndicatorCircledYellowExclamation" />
+            <Value1 Type="System.Decimal" Value="0.9" />
+            <Value2 Type="System.Decimal" Value="1" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+        <PivotItemFormatRule Name="FormatRule 3" DataItem="DataItem5" DataItemApplyTo="DataItem5">
+          <FormatConditionValue Condition="Less">
+            <IconSettings IconType="IndicatorCircledRedCross" />
+            <Value1 Type="System.Decimal" Value="0.9" />
+          </FormatConditionValue>
+          <PivotItemFormatRuleLevel />
+        </PivotItemFormatRule>
+      </FormatRules>
+      <Rows>
+        <Row DefaultId="DataItem3" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem0" />
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem5" />
+      </Values>
+    </Pivot>
+    <Card ComponentName="cardDashboardItem1" Name="Cumpl. Ppto por Linea" DataSource="dashboardSqlDataSource1" DataMember="BI_PRESUPUESTOS">
+      <DataItems>
+        <Measure DataMember="VentaMLActual" DefaultId="DataItem0">
+          <NumericFormat FormatType="Number" Precision="0" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="PptoMlocal" DefaultId="DataItem1" />
+        <Dimension DataMember="Linea" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem1" />
+        <DeltaOptions ValueType="ActualValue" />
+      </Card>
+    </Card>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Vendedor" DataSource="dashboardSqlDataSource1" DataMember="BI_PRESUPUESTOS">
+      <InteractivityOptions IgnoreMasterFilters="false" />
+      <DataItems>
+        <Dimension DataMember="VendFilter" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+  </Items>
+  <ColorScheme>
+    <Entry DataSource="dashboardSqlDataSource1" DataMember="BI_PRESUPUESTOS" PaletteIndex="19">
+      <MeasureKey>
+        <Definition DataMember="VentaMLActual" />
+      </MeasureKey>
+    </Entry>
+  </ColorScheme>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="pivotDashboardItem1" Weight="61.711229946524064" />
+      <LayoutGroup Orientation="Vertical" Weight="38.288770053475936">
+        <LayoutItem DashboardItem="comboBoxDashboardItem1" Weight="9.3406593406593412" />
+        <LayoutItem DashboardItem="cardDashboardItem1" Weight="90.659340659340657" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

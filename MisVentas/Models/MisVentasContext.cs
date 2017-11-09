@@ -19,7 +19,7 @@ namespace MisVentas.Models
         public virtual DbSet<BI_Presupuestos> BI_Presupuestos { get; set; }
         public System.Data.Entity.DbSet<MisVentas.Models.BI_PoolVendedores> BI_PoolVendedores { get; set; }
         public System.Data.Entity.DbSet<MisVentas.Models.BI_Ventas_Historicas> BI_Ventas_Historicas { get; set; }
-     //   public System.Data.Entity.DbSet<MisVentas.Models.BI_Inventarios> BI_Inventarios { get; set; }
+        public System.Data.Entity.DbSet<MisVentas.Models.BI_Inventarios> BI_Inventarios { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BI_Presupuestos>()

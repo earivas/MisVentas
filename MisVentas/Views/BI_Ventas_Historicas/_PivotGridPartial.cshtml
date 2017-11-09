@@ -16,6 +16,11 @@ settings.Styles.FieldValueStyle.Font.Size = 8;
 settings.OptionsData.DataFieldUnboundExpressionMode = DataFieldUnboundExpressionMode.UseSummaryValues;
 //settings.OptionsData.AutoExpandGroups =;
 
+settings.PreRender = (sender, e) =>
+{
+    ((MVCxPivotGrid)sender).CollapseAll();
+};
+
 settings.Fields.Add(field =>
 {
     field.Area = PivotArea.FilterArea;

@@ -1,0 +1,114 @@
+@Html.DevExpress().PivotGrid(settings => {
+    settings.Name = "PivotGrid1";
+    settings.CallbackRouteValues = new { Controller = "BI_Inventarios", Action = "PivotGrid1Partial" };
+    settings.Styles.AreaStyle.Font.Size = 8;
+    settings.Styles.CellStyle.Font.Size = 8;
+    settings.Styles.ColumnAreaStyle.Font.Size = 8;
+    settings.Styles.CustomTotalCellStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsCloseButtonStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsContentStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsHeaderStyle.Font.Size = 8;
+    settings.Styles.CustomizationFieldsStyle.Font.Size = 8;
+    settings.Styles.CustomTotalCellStyle.Font.Size = 8;
+    settings.Styles.DataAreaStyle.Font.Size = 8;
+    settings.Styles.FieldValueGrandTotalStyle.Font.Size = 8;
+    settings.Styles.FieldValueStyle.Font.Size = 8;
+    settings.OptionsData.DataFieldUnboundExpressionMode = DataFieldUnboundExpressionMode.UseSummaryValues;
+
+    settings.PreRender = (sender, e) =>
+    {
+        ((MVCxPivotGrid)sender).CollapseAll();
+    };
+
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "EsdConsignacion";
+        field.Caption = "Es Consignacion";
+        field.AreaIndex = 0;
+    });
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "Centro";
+        field.Caption = "Centro";
+        field.AreaIndex = 0;
+    });
+
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.RowArea;
+        field.FieldName = "RangoVcto";
+        field.Caption = "RangoVcto";
+        field.AreaIndex = 0;
+    });
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.RowArea;
+        field.FieldName = "Linea";
+        field.Caption = "Linea";
+        field.AreaIndex = 1;
+    });
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.RowArea;
+        field.FieldName = "Almacen";
+        field.Caption = "Almacen";
+        field.AreaIndex = 2;
+    });
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.RowArea;
+        field.FieldName = "Producto";
+        field.Caption = "Producto";
+        field.AreaIndex = 3;
+    });
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.RowArea;
+        field.FieldName = "LoteVencimiento";
+        field.Caption = "LoteVencimiento";
+        field.AreaIndex = 4;
+    });
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.DataArea;
+        field.FieldName = "CtdLibreU";
+        field.Caption = "Ctd. Libre";
+        field.AreaIndex = 1;
+        field.SortOrder = PivotSortOrder.Descending;
+        field.CellFormat.FormatType = FormatType.Numeric;
+     
+    });
+
+
+
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.DataArea;
+        field.FieldName = "CtdTraslado";
+        field.Caption = "Ctd. Traslado";
+        field.AreaIndex = 1;
+        field.SortOrder = PivotSortOrder.Descending;
+    });
+
+    settings.OptionsView.HorizontalScrollBarMode = ScrollBarMode.Auto;
+    settings.OptionsCustomization.CustomizationFormStyle = DevExpress.XtraPivotGrid.Customization.CustomizationFormStyle.Excel2007;
+    settings.OptionsPager.RowsPerPage = 13;
+    settings.OptionsPager.ColumnsPerPage = 4;
+
+}).Bind(Model).GetHtml()

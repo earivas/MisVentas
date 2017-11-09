@@ -1,7 +1,7 @@
-@Html.DevExpress().PivotGrid(settings =>
-{
+@Html.DevExpress().PivotGrid(settings => {
     settings.Name = "PivotGrid";
-    settings.CallbackRouteValues = new { Controller = "BI_Presupuestos", Action = "PivotGridPartial" };
+    settings.CallbackRouteValues = new { Controller = "Inicio", Action = "PivotGridPartial" };
+
     settings.Styles.AreaStyle.Font.Size = 8;
     settings.Styles.CellStyle.Font.Size = 8;
     settings.Styles.ColumnAreaStyle.Font.Size = 8;
@@ -16,52 +16,62 @@
     settings.Styles.FieldValueStyle.Font.Size = 8;
     settings.OptionsData.DataFieldUnboundExpressionMode = DataFieldUnboundExpressionMode.UseSummaryValues;
 
-    settings.Fields.Add(field =>
-    {
-        field.Area = PivotArea.FilterArea;
-        field.FieldName = "Vendedor";
-        field.Caption = "Vendedor";
-        field.AreaIndex = 0;
-    });
 
-    settings.Fields.Add(field =>
-    {
-        field.Area = PivotArea.FilterArea;
-        field.FieldName = "OrgVentas";
-        field.Caption = "Empresa";
-        field.AreaIndex = 0;
-    });
+
+
 
 
     settings.Fields.Add(field =>
     {
         field.Area = PivotArea.FilterArea;
-        field.AreaIndex = 0;
-        field.FieldName = "Fecha";
-        field.Caption = "Mes";
-        field.GroupInterval = PivotGroupInterval.DateMonth;
-    });
-
-    settings.Fields.Add(field =>
-    {
-        field.Area = PivotArea.RowArea;
         field.FieldName = "Linea";
         field.Caption = "Linea";
         field.AreaIndex = 0;
     });
 
+    settings.Fields.Add(field =>
+    {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "Vendedor";
+        field.Caption = "Vendedor";
+        field.AreaIndex = 1;
+    });
 
 
+    //settings.Fields.Add(field =>
+    //{
+    //    field.Area = PivotArea.RowArea;
+    //    field.AreaIndex = 0;
+    //    field.Caption = "Mes";
+    //    field.FieldName = "MesNombre";
+    //    field.AreaIndex = 1;
+    //    // field.InnerGroupIndex = 0;
+    //    //   field.UnboundFieldName = "Mes";
+    //});
 
     settings.Fields.Add(field =>
     {
         field.Area = PivotArea.RowArea;
-        field.FieldName = "Producto";
-        field.Caption = "Producto";
         field.AreaIndex = 0;
+        field.Caption = "Mes";
+        field.FieldName = "Fecha";
+        field.GroupInterval = PivotGroupInterval.DateMonth;
+        // field.GroupIndex = 1;
+        // field.InnerGroupIndex = 0;
+        //   field.UnboundFieldName = "Mes";
     });
 
-
+    //settings.Fields.Add(field =>
+    //{
+    //    field.Area = PivotArea.RowArea;
+    //    field.AreaIndex = 0;
+    //    field.Caption = "Año";
+    //    field.FieldName = "Fecha";
+    //    field.GroupInterval = PivotGroupInterval.DateMonth;
+    //    field.GroupIndex = 1;
+    //    field.InnerGroupIndex = 0;
+    //    field.UnboundFieldName = "Año";
+    //});
 
     settings.Fields.Add(field =>
     {
@@ -112,7 +122,8 @@
         f.CellFormat.FormatType = FormatType.Numeric;
         f.CellFormat.FormatString = "{0:f2} %";
         f.Area = PivotArea.DataArea;
-
+        
+        //settings.FormatConditions.AddIconSet("Total", GridConditionIconSetFormat.Arrows5Colored);
         //f.UnboundExpressionMode = "UsesSummaryValues";
 
 
@@ -120,8 +131,11 @@
 
 
     settings.OptionsView.HorizontalScrollBarMode = ScrollBarMode.Auto;
-    settings.OptionsCustomization.CustomizationFormStyle = DevExpress.XtraPivotGrid.Customization.CustomizationFormStyle.Excel2007;
-    settings.OptionsPager.RowsPerPage = 13;
-    settings.OptionsPager.ColumnsPerPage = 4;
+    // settings.OptionsCustomization.CustomizationFormStyle = DevExpress.XtraPivotGrid.Customization.CustomizationFormStyle.Excel2007;
+    settings.OptionsPager.RowsPerPage = 15;
+    settings.OptionsPager.ColumnsPerPage = 7;
+    settings.OptionsView.ShowRowHeaders = false;
+    settings.OptionsView.ShowDataHeaders = false;
+
 
 }).Bind(Model).GetHtml()
