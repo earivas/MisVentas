@@ -282,6 +282,8 @@
     <Content Include="Views\Inicio\Inicio.cshtml" />
     <Content Include="Views\BI_Inventarios\Index.cshtml" />
     <Content Include="Views\BI_Inventarios\_PivotGridPartial.cshtml" />
+    <Content Include="Views\BI_Ventas_Historicas\Ventas.cshtml" />
+    <Content Include="Views\BI_Ventas_Historicas\_GridView1Partial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
