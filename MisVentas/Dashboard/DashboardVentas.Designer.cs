@@ -51,7 +51,6 @@
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression8 = new DevExpress.DataAccess.Sql.ColumnExpression();
             DevExpress.DataAccess.Sql.Column column9 = new DevExpress.DataAccess.Sql.Column();
             DevExpress.DataAccess.Sql.ColumnExpression columnExpression9 = new DevExpress.DataAccess.Sql.ColumnExpression();
-            DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardVentas));
             DevExpress.DashboardCommon.Measure measure1 = new DevExpress.DashboardCommon.Measure();
             DevExpress.DashboardCommon.Measure measure2 = new DevExpress.DashboardCommon.Measure();
@@ -67,22 +66,37 @@
             DevExpress.DashboardCommon.PivotItemFormatRule pivotItemFormatRule3 = new DevExpress.DashboardCommon.PivotItemFormatRule();
             DevExpress.DashboardCommon.FormatConditionValue formatConditionValue3 = new DevExpress.DashboardCommon.FormatConditionValue();
             DevExpress.DashboardCommon.IconSettings iconSettings3 = new DevExpress.DashboardCommon.IconSettings();
+            DevExpress.DashboardCommon.Dimension dimension2 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Measure measure5 = new DevExpress.DashboardCommon.Measure();
             DevExpress.DashboardCommon.Measure measure6 = new DevExpress.DashboardCommon.Measure();
             DevExpress.DashboardCommon.Card card1 = new DevExpress.DashboardCommon.Card();
-            DevExpress.DashboardCommon.Dimension dimension2 = new DevExpress.DashboardCommon.Dimension();
+            DevExpress.DashboardCommon.Dimension dimension3 = new DevExpress.DashboardCommon.Dimension();
+            DevExpress.DashboardCommon.Dimension dimension4 = new DevExpress.DashboardCommon.Dimension();
+            DevExpress.DashboardCommon.Measure measure7 = new DevExpress.DashboardCommon.Measure();
+            DevExpress.DashboardCommon.Measure measure8 = new DevExpress.DashboardCommon.Measure();
+            DevExpress.DashboardCommon.Measure measure9 = new DevExpress.DashboardCommon.Measure();
+            DevExpress.DashboardCommon.ChartPane chartPane1 = new DevExpress.DashboardCommon.ChartPane();
+            DevExpress.DashboardCommon.SimpleSeries simpleSeries1 = new DevExpress.DashboardCommon.SimpleSeries();
+            DevExpress.DashboardCommon.SimpleSeries simpleSeries2 = new DevExpress.DashboardCommon.SimpleSeries();
+            DevExpress.DashboardCommon.SimpleSeries simpleSeries3 = new DevExpress.DashboardCommon.SimpleSeries();
             DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters msSqlConnectionParameters2 = new DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters();
             DevExpress.DataAccess.Sql.SelectQuery selectQuery2 = new DevExpress.DataAccess.Sql.SelectQuery();
             DevExpress.DataAccess.Sql.AllColumns allColumns1 = new DevExpress.DataAccess.Sql.AllColumns();
             DevExpress.DataAccess.Sql.Table table2 = new DevExpress.DataAccess.Sql.Table();
             DevExpress.DashboardCommon.ColorSchemeEntry colorSchemeEntry1 = new DevExpress.DashboardCommon.ColorSchemeEntry();
             DevExpress.DashboardCommon.DashboardLayoutGroup dashboardLayoutGroup1 = new DevExpress.DashboardCommon.DashboardLayoutGroup();
+            DevExpress.DashboardCommon.DashboardLayoutGroup dashboardLayoutGroup2 = new DevExpress.DashboardCommon.DashboardLayoutGroup();
             DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem1 = new DevExpress.DashboardCommon.DashboardLayoutItem();
+            DevExpress.DashboardCommon.DashboardLayoutGroup dashboardLayoutGroup3 = new DevExpress.DashboardCommon.DashboardLayoutGroup();
             DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem2 = new DevExpress.DashboardCommon.DashboardLayoutItem();
+            DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem3 = new DevExpress.DashboardCommon.DashboardLayoutItem();
+            DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem4 = new DevExpress.DashboardCommon.DashboardLayoutItem();
             DevExpress.DashboardCommon.DashboardParameter dashboardParameter1 = new DevExpress.DashboardCommon.DashboardParameter();
             this.dashboardSqlDataSource1 = new DevExpress.DashboardCommon.DashboardSqlDataSource();
             this.pivotDashboardItem1 = new DevExpress.DashboardCommon.PivotDashboardItem();
+            this.comboBoxDashboardItem1 = new DevExpress.DashboardCommon.ComboBoxDashboardItem();
             this.cardDashboardItem1 = new DevExpress.DashboardCommon.CardDashboardItem();
+            this.chartDashboardItem1 = new DevExpress.DashboardCommon.ChartDashboardItem();
             this.dashboardSqlDataSource2 = new DevExpress.DashboardCommon.DashboardSqlDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardSqlDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pivotDashboardItem1)).BeginInit();
@@ -91,10 +105,17 @@
             ((System.ComponentModel.ISupportInitialize)(measure3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(measure4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxDashboardItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardDashboardItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(measure5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(measure6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDashboardItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(measure7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(measure8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(measure9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardSqlDataSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -156,11 +177,8 @@
             selectQuery1.Columns.Add(column9);
             selectQuery1.FilterString = "";
             selectQuery1.GroupFilterString = "";
+            selectQuery1.MetaSerializable = "20|20|100|190";
             selectQuery1.Name = "BI_PRESUPUESTOS";
-            queryParameter1.Name = "VendID";
-            queryParameter1.Type = typeof(string);
-            queryParameter1.ValueInfo = "022";
-            selectQuery1.Parameters.Add(queryParameter1);
             selectQuery1.Tables.Add(table1);
             this.dashboardSqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             selectQuery1});
@@ -255,6 +273,20 @@
             measure3,
             measure4});
             // 
+            // comboBoxDashboardItem1
+            // 
+            this.comboBoxDashboardItem1.ComponentName = "comboBoxDashboardItem1";
+            dimension2.DataMember = "VendFilter";
+            this.comboBoxDashboardItem1.DataItemRepository.Clear();
+            this.comboBoxDashboardItem1.DataItemRepository.Add(dimension2, "DataItem0");
+            this.comboBoxDashboardItem1.DataMember = "BI_PRESUPUESTOS";
+            this.comboBoxDashboardItem1.DataSource = this.dashboardSqlDataSource1;
+            this.comboBoxDashboardItem1.FilterDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
+            dimension2});
+            this.comboBoxDashboardItem1.InteractivityOptions.IgnoreMasterFilters = true;
+            this.comboBoxDashboardItem1.Name = "Vendedor";
+            this.comboBoxDashboardItem1.ShowCaption = true;
+            // 
             // cardDashboardItem1
             // 
             measure5.DataMember = "VentaMLActual";
@@ -269,18 +301,65 @@
             this.cardDashboardItem1.Cards.AddRange(new DevExpress.DashboardCommon.Card[] {
             card1});
             this.cardDashboardItem1.ComponentName = "cardDashboardItem1";
-            dimension2.DataMember = "Linea";
+            dimension3.DataMember = "Linea";
             this.cardDashboardItem1.DataItemRepository.Clear();
             this.cardDashboardItem1.DataItemRepository.Add(measure5, "DataItem0");
             this.cardDashboardItem1.DataItemRepository.Add(measure6, "DataItem1");
-            this.cardDashboardItem1.DataItemRepository.Add(dimension2, "DataItem2");
+            this.cardDashboardItem1.DataItemRepository.Add(dimension3, "DataItem2");
             this.cardDashboardItem1.DataMember = "BI_PRESUPUESTOS";
             this.cardDashboardItem1.DataSource = this.dashboardSqlDataSource1;
             this.cardDashboardItem1.InteractivityOptions.IgnoreMasterFilters = false;
             this.cardDashboardItem1.Name = "Cumpl. Ppto por Linea";
             this.cardDashboardItem1.SeriesDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
-            dimension2});
+            dimension3});
             this.cardDashboardItem1.ShowCaption = true;
+            // 
+            // chartDashboardItem1
+            // 
+            dimension4.DataMember = "Fecha";
+            dimension4.DateTimeGroupInterval = DevExpress.DashboardCommon.DateTimeGroupInterval.Month;
+            this.chartDashboardItem1.Arguments.AddRange(new DevExpress.DashboardCommon.Dimension[] {
+            dimension4});
+            this.chartDashboardItem1.AxisX.TitleVisible = false;
+            this.chartDashboardItem1.ComponentName = "chartDashboardItem1";
+            measure7.DataMember = "VentaMLActual";
+            measure8.DataMember = "VentaMLAnterior";
+            measure9.DataMember = "PptoMlocal";
+            this.chartDashboardItem1.DataItemRepository.Clear();
+            this.chartDashboardItem1.DataItemRepository.Add(dimension4, "DataItem0");
+            this.chartDashboardItem1.DataItemRepository.Add(measure7, "DataItem2");
+            this.chartDashboardItem1.DataItemRepository.Add(measure8, "DataItem1");
+            this.chartDashboardItem1.DataItemRepository.Add(measure9, "DataItem3");
+            this.chartDashboardItem1.DataMember = "BI_PRESUPUESTOS";
+            this.chartDashboardItem1.DataSource = this.dashboardSqlDataSource1;
+            this.chartDashboardItem1.InteractivityOptions.IgnoreMasterFilters = false;
+            this.chartDashboardItem1.Legend.InsidePosition = DevExpress.DashboardCommon.ChartLegendInsidePosition.BottomCenterHorizontal;
+            this.chartDashboardItem1.Legend.IsInsideDiagram = true;
+            this.chartDashboardItem1.Legend.OutsidePosition = DevExpress.DashboardCommon.ChartLegendOutsidePosition.TopCenterHorizontal;
+            this.chartDashboardItem1.Name = "Cumplimiento Presupuesto";
+            chartPane1.Name = "Panel 1";
+            chartPane1.PrimaryAxisY.AlwaysShowZeroLevel = true;
+            chartPane1.PrimaryAxisY.ShowGridLines = true;
+            chartPane1.PrimaryAxisY.TitleVisible = true;
+            chartPane1.SecondaryAxisY.AlwaysShowZeroLevel = true;
+            chartPane1.SecondaryAxisY.ShowGridLines = false;
+            chartPane1.SecondaryAxisY.TitleVisible = true;
+            simpleSeries1.SeriesType = DevExpress.DashboardCommon.SimpleSeriesType.Line;
+            simpleSeries1.AddDataItem("Value", measure8);
+            simpleSeries2.SeriesType = DevExpress.DashboardCommon.SimpleSeriesType.Line;
+            simpleSeries2.AddDataItem("Value", measure7);
+            simpleSeries3.IgnoreEmptyPoints = true;
+            simpleSeries3.PlotOnSecondaryAxis = true;
+            simpleSeries3.PointLabelOptions.ShowPointLabels = true;
+            simpleSeries3.SeriesType = DevExpress.DashboardCommon.SimpleSeriesType.Line;
+            simpleSeries3.AddDataItem("Value", measure9);
+            chartPane1.Series.AddRange(new DevExpress.DashboardCommon.ChartSeries[] {
+            simpleSeries1,
+            simpleSeries2,
+            simpleSeries3});
+            this.chartDashboardItem1.Panes.AddRange(new DevExpress.DashboardCommon.ChartPane[] {
+            chartPane1});
+            this.chartDashboardItem1.ShowCaption = true;
             // 
             // dashboardSqlDataSource2
             // 
@@ -315,18 +394,35 @@
             this.DataSources.AddRange(new DevExpress.DashboardCommon.IDashboardDataSource[] {
             this.dashboardSqlDataSource1,
             this.dashboardSqlDataSource2});
-            this.EnableAutomaticUpdates = false;
             this.Items.AddRange(new DevExpress.DashboardCommon.DashboardItem[] {
             this.pivotDashboardItem1,
-            this.cardDashboardItem1});
+            this.cardDashboardItem1,
+            this.comboBoxDashboardItem1,
+            this.chartDashboardItem1});
             dashboardLayoutItem1.DashboardItem = this.pivotDashboardItem1;
-            dashboardLayoutItem1.Weight = 61.7112299465241D;
-            dashboardLayoutItem2.DashboardItem = this.cardDashboardItem1;
-            dashboardLayoutItem2.Weight = 38.2887700534759D;
-            dashboardLayoutGroup1.ChildNodes.AddRange(new DevExpress.DashboardCommon.DashboardLayoutNode[] {
+            dashboardLayoutItem1.Weight = 49.0891658676894D;
+            dashboardLayoutItem2.DashboardItem = this.comboBoxDashboardItem1;
+            dashboardLayoutItem2.Weight = 17.2297297297297D;
+            dashboardLayoutItem3.DashboardItem = this.cardDashboardItem1;
+            dashboardLayoutItem3.Weight = 82.7702702702703D;
+            dashboardLayoutGroup3.ChildNodes.AddRange(new DevExpress.DashboardCommon.DashboardLayoutNode[] {
+            dashboardLayoutItem2,
+            dashboardLayoutItem3});
+            dashboardLayoutGroup3.DashboardItem = null;
+            dashboardLayoutGroup3.Orientation = DevExpress.DashboardCommon.DashboardLayoutGroupOrientation.Vertical;
+            dashboardLayoutGroup3.Weight = 50.9108341323106D;
+            dashboardLayoutGroup2.ChildNodes.AddRange(new DevExpress.DashboardCommon.DashboardLayoutNode[] {
             dashboardLayoutItem1,
-            dashboardLayoutItem2});
+            dashboardLayoutGroup3});
+            dashboardLayoutGroup2.DashboardItem = null;
+            dashboardLayoutGroup2.Weight = 54.2124542124542D;
+            dashboardLayoutItem4.DashboardItem = this.chartDashboardItem1;
+            dashboardLayoutItem4.Weight = 45.7875457875458D;
+            dashboardLayoutGroup1.ChildNodes.AddRange(new DevExpress.DashboardCommon.DashboardLayoutNode[] {
+            dashboardLayoutGroup2,
+            dashboardLayoutItem4});
             dashboardLayoutGroup1.DashboardItem = null;
+            dashboardLayoutGroup1.Orientation = DevExpress.DashboardCommon.DashboardLayoutGroupOrientation.Vertical;
             this.LayoutRoot = dashboardLayoutGroup1;
             dashboardParameter1.Name = "VendID";
             dashboardParameter1.Type = typeof(string);
@@ -342,10 +438,17 @@
             ((System.ComponentModel.ISupportInitialize)(dimension1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(measure4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pivotDashboardItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxDashboardItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(measure5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(measure6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardDashboardItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(measure7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(measure8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(measure9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDashboardItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardSqlDataSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -356,6 +459,8 @@
         private DevExpress.DashboardCommon.PivotDashboardItem pivotDashboardItem1;
         private DevExpress.DashboardCommon.DashboardSqlDataSource dashboardSqlDataSource1;
         private DevExpress.DashboardCommon.CardDashboardItem cardDashboardItem1;
+        private DevExpress.DashboardCommon.ComboBoxDashboardItem comboBoxDashboardItem1;
+        private DevExpress.DashboardCommon.ChartDashboardItem chartDashboardItem1;
         private DevExpress.DashboardCommon.DashboardSqlDataSource dashboardSqlDataSource2;
     }
 }

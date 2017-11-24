@@ -26,15 +26,19 @@
         settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
         settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
         settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+        settings.Styles.Cell.Font.Size = 9;
+        settings.Styles.Header.Font.Size = 9;
+        settings.Styles.Header.Font.Bold = true;
 
+        //    settings.Styles.ColumnAreaStyle.Font.Size = 8;
         settings.Columns.Add("Vendedor");
         settings.Columns.Add("Anyo");
-        settings.Columns.Add("Mes");
+        settings.Columns.Add("MesNombre");
         settings.Columns.Add("Linea");
         settings.Columns.Add("Producto");
         settings.Columns.Add("NombreComercial");
-        settings.Columns.Add("CantidadTotal");
-        settings.Columns.Add("VentaML");
+        settings.Columns.Add("CantidadTotal").PropertiesEdit.DisplayFormatString = "N0";
+        settings.Columns.Add("VentaML").PropertiesEdit.DisplayFormatString = "c0";
 
     });
     if (ViewData["EditError"] != null){

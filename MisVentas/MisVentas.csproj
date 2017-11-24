@@ -284,6 +284,8 @@
     <Content Include="Views\BI_Inventarios\_PivotGridPartial.cshtml" />
     <Content Include="Views\BI_Ventas_Historicas\Ventas.cshtml" />
     <Content Include="Views\BI_Ventas_Historicas\_GridView1Partial.cshtml" />
+    <Content Include="Views\Inicio\General.cshtml" />
+    <Content Include="Views\Inicio\_ChartPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -299,6 +301,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BI_PresupuestosController.cs" />
     <Compile Include="Controllers\BI_Ventas_HistoricasController.cs" />
+    <Compile Include="Controllers\Chart\ChartController.cs" />
     <Compile Include="Controllers\DataOutputController.cs" />
     <Compile Include="Controllers\DataOutput\DataOutputController.Export.cs" />
     <Compile Include="Controllers\DemoController.cs" />
@@ -346,6 +349,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Chart\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Export\" />
   </ItemGroup>

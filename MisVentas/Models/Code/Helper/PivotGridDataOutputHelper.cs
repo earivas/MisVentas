@@ -288,7 +288,7 @@ namespace MisVentas.Models.Code
             public PivotGridDataAwareExportMethod ExcelMethod { get; set; }
         }
 
-        static PivotGridSettings pivotChartIntegrationSettings;
+      //  static PivotGridSettings pivotChartIntegrationSettings;
         //public static PivotGridSettings PivotChartIntegrationSettings() {
         //    return PivotChartIntegrationSettings(null);
         //}

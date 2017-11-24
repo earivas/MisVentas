@@ -28,6 +28,16 @@ namespace MisVentas.Controllers
         [ValidateInput(false)]
         //   [HttpPost, Authorize, ValidateAntiForgeryToken] // nuevo
         [SessionExpire]
+
+        public ActionResult PivotP()
+        {
+            string userName = System.Web.HttpContext.Current.Session["Username"] as String;
+            var vendedorID = db.BI_PoolVendedores.Where(vd => vd.UserDomain == userName).Select(vd => vd.VendFilter).First();
+            var ppto = db.BI_Presupuestos.Where(bi => bi.VendFilter == vendedorID.ToString()).ToList();
+
+
+            return View();
+        }
         public ActionResult PivotGridPartial()
         {
 

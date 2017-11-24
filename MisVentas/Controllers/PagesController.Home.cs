@@ -9,11 +9,12 @@ using MisVentas.Models;
 using System.Linq;
 using MisVentas.Dashboard;
 using DevExpress.DataAccess.Sql;
+using DevExpress.Data.Filtering;
 
 namespace MisVentas.Controllers
 {
 
-
+   //
     public partial class PagesController : Controller
 
     {
@@ -51,12 +52,16 @@ namespace MisVentas.Controllers
                 DashboardSourceModel model = new DashboardSourceModel();
                 model.DashboardSource = ppto; //typeof(BI_Presupuestos);
                 return DashboardViewerSettings.DashboardSourceModel();
+
+                
             }
         }
         private static DashboardSourceModel DashboardSourceModel()
         {
             DashboardSourceModel model = new DashboardSourceModel();
-            model.DashboardSource = System.Web.Hosting.HostingEnvironment.MapPath(@"~\App_Data\DashboardMisventas.xml");
+            model.DashboardSource = System.Web.Hosting.HostingEnvironment.MapPath(@"~\App_Data\DashboardMisventasFiltro.xml");
+
+          
 
             model.DashboardSource = typeof(DashboardVentas);
             model.DashboardLoaded = new DevExpress.DashboardWeb.DashboardLoadedWebEventHandler((s, e) =>
@@ -68,6 +73,13 @@ namespace MisVentas.Controllers
              //   " WHERE [Categories].[CategoryID] IN " + builder.ToString();
 
             });
+
+            MisVentas.Models.MisVentasContext db = new Models.MisVentasContext();
+            string userName = System.Web.HttpContext.Current.Session["Username"] as String;
+            var vendedorID = db.BI_PoolVendedores.Where(vd => vd.UserDomain == userName).Select(vd => vd.VendFilter).First();
+            var ppto = db.BI_Presupuestos.Where(bi => bi.VendFilter == vendedorID.ToString()).ToList();
+            model.CustomFilterExpression = (sender, e) => { e.FilterExpression = CriteriaOperator.Parse(string.Format("Table.Column = '{0}'", vendedorID)); };
+            //  model.CustomFilterExpression = (sender, e) => { e.FilterExpression = new InOperator("BI_PRESUPUESTOS.VendFilter", vendedorID); };
             return model;
 
             //return new DashboardSourceModel();

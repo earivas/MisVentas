@@ -72,13 +72,7 @@ settings.Fields.Add(field =>
     field.AreaIndex = 0;
 });
 
-settings.Fields.Add(field =>
-{
-    field.Area = PivotArea.FilterArea;
-    field.FieldName = "CantidadTotal";
-    field.Caption = "Cant. Total";
-    field.AreaIndex = 0;
-});
+
 
 
 settings.Fields.Add(field =>
@@ -136,13 +130,22 @@ settings.Fields.Add(field =>
 
 });
 
+settings.Fields.Add(field =>
+{
+    field.Area = PivotArea.DataArea;
+    field.FieldName = "CantidadTotal";
+    field.Caption = "Cant. Total";
+    field.AreaIndex = 0;
+    field.CellFormat.FormatType = FormatType.Numeric;
+    field.CellFormat.FormatString = "N0";
+});
 
 settings.Fields.Add(field =>
 {
     field.Area = PivotArea.DataArea;
     field.FieldName = "VentaML";
     field.Caption = "Ventas";
-    field.AreaIndex = 0;
+    field.AreaIndex = 1;
 });
 
 //settings.Fields.Add(field =>

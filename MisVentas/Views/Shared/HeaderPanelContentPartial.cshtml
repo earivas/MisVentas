@@ -55,37 +55,16 @@
                item.NavigateUrl = DevExpressHelper.GetUrl(new { Controller = "Account", Action = "LogOff" });
            });
 
+
+           // test
+        
            //m.Items.Add("HOME").NavigateUrl = DevExpressHelper.GetUrl(new { Controller = "Pages", Action = "Home" });
            //m.Items.Add("BLOG").NavigateUrl = DevExpressHelper.GetUrl(new { Controller = "Pages", Action = "BlogTimeline" });
            //m.Items.Add("CONTACT US").NavigateUrl = DevExpressHelper.GetUrl(new { Controller = "Pages", Action = "Contacts" });
 
        }).GetHtml() 
         </div>
-        @*<div class="panelItem">
-           @Html.DevExpress().Menu(settings =>
-      {
-
-          settings.Name = "mOverview";
-          settings.EnableAnimation = true;
-          settings.ControlStyle.CssClass = "navMenu";
-          settings.Items.Add(item =>
-          {
-
-              item.Text = "Home";
-              item.Image.Url = "~/Content/Images/LogOut.png";
-              item.Items.Add("News");
-              item.Items.Add("Contact Us");
-          });
-          settings.Items.Add(item =>
-          {
-              item.Text = "Profile";
-              item.Image.Url = "~/Images/BO_Users_Large.png";
-              item.Items.Add("Change Password");
-          });
-          // And other items
-      }).GetHtml()
-
-        </div>*@
+    
 
         @if(ViewBag.ShowSearchEditor == null || ViewBag.ShowSearchEditor) {    
         <div class="panelItem">
@@ -99,17 +78,7 @@
                     $('#searchForm').submit();
                 }
             </script>
-            @*@using(Html.BeginForm("Search", "Pages", FormMethod.Post, new { id = "searchForm" })) { 
-                Html.DevExpress().ButtonEdit(be => {
-                    be.Name = "Query";
-                    be.Properties.NullText = "Search in blog";
-                    be.ControlStyle.CssClass = "searchBox";
-                    be.Properties.ButtonStyle.CssClass = "glyphicon glyphicon-search searchBoxButton";
-                    be.Properties.Buttons.Add();
-                    be.Properties.ClientSideEvents.ButtonClick = "OnSearchClick";
-                    be.Properties.ClientSideEvents.KeyUp = "OnSearchKeyUp";
-                }).Render();
-            }*@ 
+
         </div>
         } 
     </div>
